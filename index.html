@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--jspdf cdn -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <!--Jquery cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <!-- Bootstrap cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap style cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <title>Diagnosis Card</title>
+  </head>
+  <body>
+    
+    <!-- Navbar from bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+      <p style="width: 100px; color:black"; class="navbar-brand m-0" >
+        <b>Diagnosis Card</b>
+      </p>
+       
+    </nav>
+    <p></p>
+
+
+      <!-- Form from bootstrap -->
+      <form class="mx-5 px-5">
+        <div class="row">
+          <div class="col-10 mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Name of the Patient</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="patientName"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('patientName')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Personal Health No.</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="personalHealthNo"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('personalHealthNo')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Contact No.</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="contactNo"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('contactNo')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >NIC no.</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="nic"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('nic')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Blood Group</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="bloodGroup"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('bloodGroup')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Allergy(Drug/Food/Other)</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="allergy"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('allergy')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Hospital</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="hospital"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('hospital')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >BHT No.</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="bht"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('bht')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Ward/Unit</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="ward"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('ward')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Sex Male/Female</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="gender"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('gender')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Age</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="age"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('age')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+        
+        <div class="row mt-4">  
+          <div class="col-6">
+          <label for="exampleInputEmail1" class="form-label"
+            >Date of Admission</label
+          >
+          <input type="date" name="date" id="admissionDate" >
+          </div>
+          <div class="col-6">
+          <label for="exampleInputEmail1" class="form-label"
+            >Date of Discharge</label
+          >
+          <input type="date" name="date" id="dischargeDate" >
+          </div>
+        </div>
+        
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-10 mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Principal Diagnosis</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="principalDiagnosis"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('principalDiagnosis')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-10 mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Co-morbidities Surgeries Procedures</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="procedures"
+              aria-describedby="procedures"
+            />
+          </div>
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('procedures')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div> 
+
+        <div class="row">
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Mode of Admission</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="modeOfAdmission"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('modeOfAdmission')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Mode of Discharge</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="modeOfDischarge"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('modeOfDischarge')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Disease Notification</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="deseaseNotification"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('deseaseNotification')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Medical Certificate Issued</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="medicalCertificateIssued"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('medicalCertificateIssued')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Insuarance Form Filled</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="insuaranceFormFilled"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('insuaranceFormFilled')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Consultant Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="consultantName"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('consultantName')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >HO/MO Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="moName"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('moName')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+
+        
+
+        <div class="row mt-4">
+          <div class="col-10 mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Presenting Complaint, History, Examination Findings, Treatment / Surgical Procedures</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder=""
+                id="diseaseDescription"
+                style="height: 100px"
+              ></textarea>
+            </div>
+          </div>
+          
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('diseaseDescription')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-10 mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Investigations</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder=""
+                id="investigations"
+                style="height: 100px"
+              ></textarea>
+            </div>
+          </div>
+          
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('investigations')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-10 mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Special Investigations (Eg:- History Report, CT Scan)</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder=""
+                id="specialInvestigations"
+                style="height: 100px"
+              ></textarea>
+            </div>
+          </div>
+          
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('specialInvestigations')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-10 mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Patient's Condition at the Time of Discharge</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder=""
+                id="condition"
+                style="height: 100px"
+              ></textarea>
+            </div>
+          </div>
+          
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('condition')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-10 mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Medication on Discharge</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder=""
+                id="medicationOnDischarge"
+                style="height: 100px"
+              ></textarea>
+            </div>
+          </div>
+          
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('medicationOnDischarge')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-10 mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Discharge Plan: (Include of Management plan, Advices, Diet, Life Style Behaviour)</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder=""
+                id="dischargePlan"
+                style="height: 100px"
+              ></textarea>
+            </div>
+          </div>
+          
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('dischargePlan')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+        <div class="row mt-4">  
+          <div class="col-6">
+          <label for="exampleInputEmail1" class="form-label"
+            >Date of Follow up</label
+          >
+          <input type="date" name="date" id="followupDate" >
+          </div>
+          
+            <label for="appt">Time </label>
+            <input type="time" id="time" name="appt">
+            
+        </div>
+        <div class="row">
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Day</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="day"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('day')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Type of Clinic</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="typeOfClinic"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('typeOfClinic')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Consultant's Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="consultantName2"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('consultantName2')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          <div class="col-sm-4 col-xs-10 col-md-2 mt-4">
+            <label for="exampleInputEmail1" class="form-label"
+              >Room No.</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="roomNo"
+              aria-describedby="patientName"
+            />
+          </div>
+          <div class="col-2 mt-5">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('roomNo')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+          
+          </div>
+          
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-10 mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Instructions in Sinhala or Tamil (Optional) (Eg:- Disease Condition, Medication, Referrals)</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder=""
+                id="instructions"
+                style="height: 100px"
+              ></textarea>
+            </div>
+          </div>
+          
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('instructions')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-10 mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Referral Note</label
+            >
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder=""
+                id="referralNotes"
+                style="height: 100px"
+              ></textarea>
+            </div>
+          </div>
+          
+          <div class="col-2 mt-4 p-2">
+            <button
+              id="startRecognizeOnceAsyncButton"
+              onclick="displayRecordedMessage('referralNotes')"
+              class="btn btn-primary"
+            >
+              <i data-feather="mic"></i>
+              <script>
+                feather.replace();
+              </script>
+            </button>
+          </div>
+        </div>
+        
+      
+        
+        
+
+        <p></p>
+
+        <button type="button" id="button" class="btn btn-warning btn-block">
+          <b>Generate</b>
+        </button>
+      </form>
+    </div>
+
+    <script src="./main.js"></script>
+    <!--js file-->
+    <!-- <div id="content" style="display: none">
+          <table width="100%">
+            <tr>
+              <td></td>
+              <td>
+                <h1 style="font-weight: 500">
+                  Simple Web Interface For Demonstration Purposes
+                </h1>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">Subscription:</td>
+              <td>
+                <input
+                  id="subscriptionKey"
+                  type="text"
+                  size="40"
+                  value="subscription"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td align="right">Region:</td>
+              <td>
+                <input
+                  id="serviceRegion"
+                  type="text"
+                  size="40"
+                  value="YourServiceRegion"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <button id="startRecognizeOnceAsyncButton">
+                  <i data-feather="mic"></i>
+                  <script>
+                    feather.replace();
+                  </script>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td align="right" align="top">Transcriptions:</td>
+              <td>
+                <textarea
+                  id="phraseDiv"
+                  style="display: inline-block; width: 500px; height: 200px"
+                ></textarea>
+              </td>
+            </tr>
+          </table>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- </uidiv> -->
+
+    <!-- <speechsdkref> -->
+    <!-- Speech SDK reference sdk. -->
+    <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+    <!-- </speechsdkref> -->
+
+    <!-- <quickstartcode> -->
+    <!-- Speech SDK USAGE -->
+    <script>
+      // status fields and start button in UI
+      var phraseDiv;
+      var startRecognizeOnceAsyncButton;
+
+      // subscription key and region for speech services.
+      var subscriptionKey, serviceRegion;
+      var SpeechSDK;
+      var recognizer;
+      
+      function displayRecordedMessage(input) {
+        var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(
+        "097c702fb2564cce87f7d6a8d1aa68e4",
+        "eastus"
+      );
+
+      speechConfig.endpointId = "329039a6-67da-424d-af51-314c5f66b26b";
+      var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+      recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+        event.preventDefault();
+        console.log("");
+        //startRecognizeOnceAsyncButton.disabled = true;
+        //document.getElementById(input.toString()).innerHTML = "";
+
+        recognizer.recognizeOnceAsync(
+          (result) => {
+            // startRecognizeOnceAsyncButton.disabled = false;
+            console.log(input);
+            window.console.log(result);
+            window.console.log(document.getElementById(input).value);
+            document.getElementById(input).value = result.text;
+            
+            recognizer.close();
+            recognizer = undefined;
+          },
+          (err) => {
+            // startRecognizeOnceAsyncButton.disabled = false;
+            document.getElementById(input.toString()).value = err;
+            window.console.log(err);
+
+            recognizer.close();
+            recognizer = undefined;
+          }
+        );
+      }
+
+      // if (!!window.SpeechSDK) {
+      //   SpeechSDK = window.SpeechSDK;
+      //   startRecognizeOnceAsyncButton.disabled = false;
+
+      //   document.getElementById("content").style.display = "block";
+      //   document.getElementById("warning").style.display = "none";
+      // }
+    </script>
+  </body>
+</html>
