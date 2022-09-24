@@ -972,11 +972,11 @@
       
       function displayRecordedMessage(input) {
         var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(
-        "097c702fb2564cce87f7d6a8d1aa68e4",
+        "0d357f0376604506b18ccbffebc840c1",
         "eastus"
       );
 
-      speechConfig.endpointId = "329039a6-67da-424d-af51-314c5f66b26b";
+      speechConfig.endpointId = "https://eastus.api.cognitive.microsoft.com/sts/v1.0/issuetoken";
       var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
       recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
         event.preventDefault();
